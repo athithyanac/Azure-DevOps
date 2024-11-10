@@ -1,0 +1,52 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  name: Azure Pipelines
+  vmImage: ubuntu-latest
+
+stages:
+- stage: build
+  jobs:
+  - job: FirstJob
+    steps:
+    - bash: echo Build First Step
+  - job: SecondJob
+    dependsOn: FirstJob
+    steps:
+    - bash: echo Build Second Steps
+- stage: devDeploy
+  jobs:
+  - job: FirstJob
+    steps:
+    - bash: echo Build First Step
+  - job: SecondJob
+    dependsOn: FirstJob
+    steps:
+    - bash: echo Build Second Step
+- stage: qaDeploy
+  jobs:
+  - job: FirstJob
+    steps:
+    - bash: echo Build First Step
+  - job: SecondJob
+    dependsOn: FirstJob
+    steps:
+    - bash: echo Build Second Step
+- stage: prodDeploy
+  jobs:
+  - job: FirstJob
+    steps:
+    - bash: echo Build First Step
+  - job: SecondJob
+    dependsOn: FirstJob
+    steps:
+    - bash: echo Build Second Step
+
+# Pipeline > Stage > Jobs > Tasks(Steps)
+

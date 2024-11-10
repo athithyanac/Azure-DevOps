@@ -1,0 +1,18 @@
+trigger:
+- main
+
+- pool:
+  name: MyAgentPool
+  vmImage: ubuntu:latest
+
+steps:
+- script: echo Hello guys
+  displayName: This is script is a oneline script
+
+- script: |
+    echo Hello guys
+    echo This is a multiline script
+  displayName: This script is a multiline script
+
+# Pipeline > Stage > Jobs > Tasks(Steps)
+

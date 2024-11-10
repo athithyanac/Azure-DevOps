@@ -1,0 +1,21 @@
+trigger:
+# - main
+# - stage
+# - release
+  none
+
+# pool:
+#   vmImage: ubuntu-latest
+
+pool:
+  name: adi
+  demands:
+    - agent.name -equals Agent1
+
+stages:
+  - stage: Compile
+    displayName: MavenCompile
+    jobs:
+      - job: maven_compile
+        steps: 
+

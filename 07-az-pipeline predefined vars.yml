@@ -1,0 +1,78 @@
+  # Starter pipeline
+  # Start with a minimal pipeline that you can customize to build and deploy your code.
+  # Add steps that build, run tests, deploy, and more:
+  # https://aka.ms/yaml
+
+  trigger:
+  - main
+
+  pool:
+    name: Azure Pipelines
+    vmImage: ubuntu-latest
+  stages:
+  - stage: Build
+    jobs:
+    - job: FirstJob
+      steps:
+      - bash: echo Build First Step
+      - bash: echo pipelinevar --> $(pipelinevar)
+      - bash: echo $(Build.BuildNumber)
+      - bash: echo $(Build.BuildId)
+      - bash: echo $(Build.SourceBranch)
+      - bash: echo $(Build.SourceBranchName)
+      - bash: echo $(System.DefaultWorkingDirectory)
+      - bash: echo $(Build.SourcesDirectory)
+      - bash: echo $(Build.SourceVersion)
+      - bash: echo $(Build.StagingDirectory)
+      - bash: echo $(Build.TriggeredBy.BuildId)
+      - bash: echo $(Build.TriggeredBy.BuildNumber)
+      - bash: java -verion
+      - bash: python --version
+      - bash: node --version
+      - bash: mvn -version
+      
+  #   - job: SecondJob
+  #     dependsOn: FirstJob
+  #     steps:
+  #     - bash: echo Build Second Steps
+  # - stage: devDeploy
+  #   variables:
+  #     env: dev
+  #   dependsOn: Build
+  #   jobs:
+  #   - job: FirstJob
+  #     steps:
+  #     - bash: echo $(env)Deploy Build First Step
+  #   - job: SecondJob
+  #     dependsOn: FirstJob
+  #     steps:
+  #     - bash: echo $(env)Deploy Build Second Step
+  # - stage: qaDeploy
+  #   variables:
+  #     env: qa
+  #   dependsOn: Build
+  #   jobs:
+  #   - job: FirstJob
+  #     steps:
+  #     - bash: echo $(env)Deploy Build First Step
+  #   - job: SecondJob
+  #     dependsOn: FirstJob
+  #     steps:
+  #     - bash: echo $(env)Deploy Build Second Step
+  # - stage: prodDeploy
+  #   variables:
+  #     env: prod
+  #   dependsOn: 
+  #   - devDeploy
+  #   - qaDeploy
+  #   jobs:
+  #   - job: FirstJob
+  #     steps:
+  #     - bash: echo $(env)Deploy Build First Step
+  #   - job: SecondJob
+  #     dependsOn: FirstJob
+  #     steps:
+  #     - bash: echo $(env)Deploy Build Second Step
+
+  # Pipeline > Stage > Jobs > Tasks(Steps)
+
