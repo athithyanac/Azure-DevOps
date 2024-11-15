@@ -16,16 +16,17 @@
       steps:
       - bash: echo Build First Step
       - bash: echo pipelinevar --> $(pipelinevar)
-      - bash: echo $(Build.BuildNumber)
-      - bash: echo $(Build.BuildId)
-      - bash: echo $(Build.SourceBranch)
-      - bash: echo $(Build.SourceBranchName)
-      - bash: echo $(System.DefaultWorkingDirectory)
-      - bash: echo $(Build.SourcesDirectory)
-      - bash: echo $(Build.SourceVersion)
-      - bash: echo $(Build.StagingDirectory)
-      - bash: echo $(Build.TriggeredBy.BuildId)
-      - bash: echo $(Build.TriggeredBy.BuildNumber)
+      - bash: echo Build.BuildNumber --> $(Build.BuildNumber)
+      - bash: echo Build.BuildId --> $(Build.BuildId)
+      - bash: echo "Build.SourceBranch --> $(Build.SourceBranch)"
+      - bash: echo Build.SourceBranchName --> $(Build.SourceBranchName)
+      - bash: echo "System.DefaultWorkingDirectory --> $(System.DefaultWorkingDirectory)"
+      - bash: echo "Build.SourcesDirectory --> $(Build.SourcesDirectory)"
+      - bash: echo "Build.SourceVersion --> $(Build.SourceVersion)"
+      - bash: echo "Build.StagingDirectory --> $(Build.StagingDirectory)"
+      - bash: echo "Build.TriggeredBy.BuildId -->" $(Build.TriggeredBy.BuildId)
+      - bash: echo "Build.TriggeredBy.BuildNumber --> $(Build.TriggeredBy.BuildNumber)"
+      - bash: echo "Build.ArtifactStagingDirectory --> $(Build.ArtifactStagingDirectory)"
       - bash: java -verion
       - bash: python --version
       - bash: node --version
